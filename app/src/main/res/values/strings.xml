@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Add Numbers</string>
+    <string name="tappedTV">I want THIS and THIS to be clickable.</string>
+    <string name="Privacy_Policy">
+        <a href="https://meshtech.no/privacy-policy/">Privacy Policy.</a>>
+    </string>
+</resources>
