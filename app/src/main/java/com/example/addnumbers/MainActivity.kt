@@ -1,5 +1,6 @@
 package com.example.addnumbers
 
+import android.content.DialogInterface
 import android.graphics.Color
 import android.os.Bundle
 import android.text.SpannableString
@@ -10,6 +11,7 @@ import android.text.style.ForegroundColorSpan
 import android.text.style.URLSpan
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
 import kotlinx.android.synthetic.main.activity_main.*
@@ -33,18 +35,41 @@ class MainActivity : AppCompatActivity() {
                     "Result: " + (editNum1.text.toString().toInt() + editNum2.text.toString().toInt()).toString()
                 Toast.makeText(this, textResult.text, Toast.LENGTH_LONG).show()
             } else {
-                Toast.makeText(this, "Fill in numbers", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, R.string.fill_nums, Toast.LENGTH_LONG).show()
             }
         }
 
-//        (textView as TextView).setCompoundDrawablesPadding(3)
+        fun showBasicDialog(view: View?) {
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle(R.string.alert_title)
+            builder.setMessage(R.string.alert_message)
+            builder.setCancelable(false)
+            builder.setPositiveButton(R.string.reset, DialogInterface.OnClickListener {
+                    dialog, id ->
+                editNum1.setText(null)
+                editNum2.setText(null)
+                textResult.text = "Result: "
+                if (editNum1.length() < 0 && editNum2.length() < 0) {
+                    Toast.makeText(this, "Cleared input", Toast.LENGTH_LONG).show()
+                }
+            })
+            builder.setNegativeButton(R.string.cancel, DialogInterface.OnClickListener {
+                    dialog, id -> dialog.cancel()
+            })
+            builder.show()
+        }
 
         resetButton.setOnClickListener {
-            editNum1.setText(null)
-            editNum2.setText(null)
-            textResult.text = "Result: "
-            Toast.makeText(this, "Cleared input", Toast.LENGTH_LONG).show()
+            showBasicDialog(null)
+//            editNum1.setText(null)
+//            editNum2.setText(null)
+//            textResult.text = "Result: "
+//            Toast.makeText(this, "Cleared input", Toast.LENGTH_LONG).show()
         }
+
+
+
+
 
         val spannableString = SpannableString("I want THIS and THIS to be clickable")
         val url = "https://developer.android.com"
@@ -54,13 +79,12 @@ class MainActivity : AppCompatActivity() {
 
         spannableString.setSpan(URLSpan(url), 7, 11, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
 
-        
+
         val clickableSpan2 = object : ClickableSpan() {
             override fun onClick(widget: View) {
                 Toast.makeText(this@MainActivity, "Two", Toast.LENGTH_SHORT).show()
             }
         }
-
 
         spannableString.setSpan(clickableSpan2, 16, 20, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
 

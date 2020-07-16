@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:text="Sum Of Two Numbers"
-        android:drawablePadding="10dp"
+        android:drawablePadding="5dp"
         android:textColor="#009688"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -64,6 +64,7 @@
         android:layout_height="wrap_content"
         android:background="#009688"
         android:text="@android:string/ok"
+        android:drawablePadding="1dp"
         android:textColor="#FFFFFF"
         android:textColorHighlight="#F1EFF4"
 

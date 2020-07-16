@@ -4,4 +4,9 @@
     <string name="Privacy_Policy">
         <a href="https://meshtech.no/privacy-policy/">Privacy Policy.</a>>
     </string>
+    <string name="fill_nums">Fill in numbers!</string>
+    <string name="alert_title">Do you want to reset the numbers?</string>
+    <string name="alert_message">Reset the numbers or cancel the operation?</string>
+    <string name="reset">Reset</string>
+    <string name="cancel">Cancel</string>
 </resources>
