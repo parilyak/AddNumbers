@@ -46,34 +46,6 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "Cleared input", Toast.LENGTH_LONG).show()
         }
 
-
-//        var text = "I want THIS and THIS to be clickable"
-//        var spannableText = SpannableString(text)
-//        var fcsRed = ForegroundColorSpan(ResourcesCompat.getColor(resources, R.color.colorPink, null))
-//        var fcsGreen = ForegroundColorSpan(Color.GREEN)
-//
-////        val clickableSpan = object : ClickableSpan() {
-////            override fun onClick(widget: View) {
-//////                Toast.makeText(this@MainActivity, "One", Toast.LENGTH_SHORT).show()
-////            }
-////        }
-//
-
-//
-////        spannableText.setSpan(clickableSpan, 7, 11, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-
-//        spannableText.setSpan(fcsRed, 7, 11, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-//        spannableText.setSpan(fcsGreen, 16, 20, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-////        spannableText.setSpan(URLSpan("https://meshtech.no/privacy-policy/"), 7, 11, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-//
-//        val string = SpannableString(text)
-//        string.setSpan(URLSpan("http://www.developer.android.com"), 7, 11, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-//
-//
-//        clickable_textView.setText(spannableText)
-//        clickable_textView.movementMethod = LinkMovementMethod.getInstance()
-
-
         val spannableString = SpannableString("I want THIS and THIS to be clickable")
         val url = "https://developer.android.com"
 
@@ -82,8 +54,7 @@ class MainActivity : AppCompatActivity() {
 
         spannableString.setSpan(URLSpan(url), 7, 11, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
 
-
-
+        
         val clickableSpan2 = object : ClickableSpan() {
             override fun onClick(widget: View) {
                 Toast.makeText(this@MainActivity, "Two", Toast.LENGTH_SHORT).show()
