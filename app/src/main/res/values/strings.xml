@@ -9,4 +9,7 @@
     <string name="alert_message">Reset the numbers or cancel the operation?</string>
     <string name="reset">Reset</string>
     <string name="cancel">Cancel</string>
+    <string name="clear_input">Cleared input</string>
+    <string name="reset_button_text">RESET</string>
+    <string name="ok_button_text">OK</string>
 </resources>

@@ -49,9 +49,7 @@ class MainActivity : AppCompatActivity() {
                 editNum1.setText(null)
                 editNum2.setText(null)
                 textResult.text = "Result: "
-                if (editNum1.length() < 0 && editNum2.length() < 0) {
-                    Toast.makeText(this, "Cleared input", Toast.LENGTH_LONG).show()
-                }
+                Toast.makeText(this, R.string.clear_input, Toast.LENGTH_LONG).show()
             })
             builder.setNegativeButton(R.string.cancel, DialogInterface.OnClickListener {
                     dialog, id -> dialog.cancel()
@@ -61,15 +59,7 @@ class MainActivity : AppCompatActivity() {
 
         resetButton.setOnClickListener {
             showBasicDialog(null)
-//            editNum1.setText(null)
-//            editNum2.setText(null)
-//            textResult.text = "Result: "
-//            Toast.makeText(this, "Cleared input", Toast.LENGTH_LONG).show()
         }
-
-
-
-
 
         val spannableString = SpannableString("I want THIS and THIS to be clickable")
         val url = "https://developer.android.com"
