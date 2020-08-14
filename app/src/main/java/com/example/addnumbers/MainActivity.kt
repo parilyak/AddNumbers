@@ -1,7 +1,9 @@
 package com.example.addnumbers
 
+import android.annotation.SuppressLint
 import android.content.DialogInterface
 import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.Spanned
@@ -11,8 +13,10 @@ import android.text.style.ForegroundColorSpan
 import android.text.style.URLSpan
 import android.view.View
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import kotlinx.android.synthetic.main.activity_main.*
 //import sun.jvm.hotspot.utilities.IntArray
@@ -39,24 +43,45 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+//        fun showBasicDialog(view: View?) {
+//            val builder = AlertDialog.Builder(this)
+//            builder.setTitle(R.string.alert_title)
+//            builder.setMessage(R.string.alert_message)
+//            builder.setCancelable(false)
+//            builder.setPositiveButton(R.string.reset, DialogInterface.OnClickListener {
+//                    dialog, id ->
+//                editNum1.setText(null)
+//                editNum2.setText(null)
+//                textResult.text = "Result: "
+//                Toast.makeText(this, R.string.clear_input, Toast.LENGTH_LONG).show()
+//            })
+//            builder.setNegativeButton(R.string.cancel, DialogInterface.OnClickListener {
+//                    dialog, id -> dialog.cancel()
+//            })
+//            builder.show()
+//        }
+
+        @SuppressLint("ResourceAsColor")
+        @RequiresApi(Build.VERSION_CODES.M)
         fun showBasicDialog(view: View?) {
-            val builder = AlertDialog.Builder(this)
-            builder.setTitle(R.string.alert_title)
-            builder.setMessage(R.string.alert_message)
-            builder.setCancelable(false)
-            builder.setPositiveButton(R.string.reset, DialogInterface.OnClickListener {
-                    dialog, id ->
+            val alertDialog = AlertDialog.Builder(this).create()
+            alertDialog.setTitle(getString((R.string.alert_title)))
+            alertDialog.setMessage(getString(R.string.alert_message))
+            alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, getString(R.string.reset)
+            ) { dialog, which ->
                 editNum1.setText(null)
                 editNum2.setText(null)
                 textResult.text = "Result: "
-                Toast.makeText(this, R.string.clear_input, Toast.LENGTH_LONG).show()
-            })
-            builder.setNegativeButton(R.string.cancel, DialogInterface.OnClickListener {
-                    dialog, id -> dialog.cancel()
-            })
-            builder.show()
-        }
+                Toast.makeText(this, R.string.clear_input, Toast.LENGTH_LONG).show()}
 
+            alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, getString(R.string.cancel)
+            ) { dialog, which -> dialog.cancel() }
+
+            alertDialog.show()
+            alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(ContextCompat.getColor(this, R.color.colorSalad))
+            alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(ContextCompat.getColor(this, R.color.colorSalad))
+        }
+        
         resetButton.setOnClickListener {
             showBasicDialog(null)
         }
