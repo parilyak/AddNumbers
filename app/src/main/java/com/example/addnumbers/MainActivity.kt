@@ -43,26 +43,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-//        fun showBasicDialog(view: View?) {
-//            val builder = AlertDialog.Builder(this)
-//            builder.setTitle(R.string.alert_title)
-//            builder.setMessage(R.string.alert_message)
-//            builder.setCancelable(false)
-//            builder.setPositiveButton(R.string.reset, DialogInterface.OnClickListener {
-//                    dialog, id ->
-//                editNum1.setText(null)
-//                editNum2.setText(null)
-//                textResult.text = "Result: "
-//                Toast.makeText(this, R.string.clear_input, Toast.LENGTH_LONG).show()
-//            })
-//            builder.setNegativeButton(R.string.cancel, DialogInterface.OnClickListener {
-//                    dialog, id -> dialog.cancel()
-//            })
-//            builder.show()
-//        }
-
-        @SuppressLint("ResourceAsColor")
-        @RequiresApi(Build.VERSION_CODES.M)
         fun showBasicDialog(view: View?) {
             val alertDialog = AlertDialog.Builder(this).create()
             alertDialog.setTitle(getString((R.string.alert_title)))
